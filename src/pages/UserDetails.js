@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Header } from '../components/Header';
+import { Button, Image, StyleSheet, Text, View } from "react-native";
+// import { Header } from '../components/Header';
 
-export class UserDetails extends Component {
+export class UserDetails extends React.Component {
   render() {
     return (
-      <div className="user-details">
-        <Header></Header>
-
+      <view>
         User Details
-      </div>
+      </view>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { createStackNavigator } from 'react-navigation';
 
 import { Navigation } from '../components/Navigation';
 
@@ -19,7 +19,6 @@ export class Header extends Component {
           </div>
 
           <div className="header__item">
-            <Link to="/">+</Link>
           </div>
         </div>
 

@@ -4,11 +4,10 @@ import { Header } from '../components/Header';
 export class Dashboard extends Component {
   render() {
     return (
-      <div className="Dashboard">
-        <Header></Header>
-
+      <view >
+        <Header />
         Dashboard
-      </div>
+      </view>
     );
   }
 }
