@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import './styles/global';
+
 import { Dashboard } from './pages/Dashboard';
 import { UserDetails } from './pages/UserDetails';
 

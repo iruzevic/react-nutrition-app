@@ -1,0 +1,17 @@
+export const icons = {
+  arrow: require('./arrow.svg'),
+  breakfast:  require('./breakfast.svg'),
+  calendar:  require('./calendar.svg'),
+  carbs:  require('./carbs.svg'),
+  dinner:  require('./menu.svg'),
+  fats:  require('./menu.svg'),
+  lunch:  require('./lunch.svg'),
+  meal:  require('./menu.svg'),
+  meat:  require('./meat.svg'),
+  menu:  require('./menu.svg'),
+  plus:  require('./plus.svg'),
+  proteins:  require('./proteins.svg'),
+  scale:  require('./scale.svg'),
+  search:  require('./search.svg'),
+  snack:  require('./snack.svg'),
+};
