@@ -52,7 +52,7 @@ export class Header extends Component {
           </div>
         </div>
 
-        <Navigation isOpen={this.state.isOpen}></Navigation>
+        <Navigation toggleMenu={this.toggleMenu} isOpen={this.state.isOpen}></Navigation>
       </div>
 
     );

@@ -7,28 +7,10 @@ import { colors } from './../styles/utils/colors';
 import { icons } from './../assets/icons';
 
 export class Navigation extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOpen: this.props.isOpen
-    };
-    
-    // console.log(this.props.isOpen);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-
-  closeMenu() {
-    this.setState({
-      isOpen: true,
-    });
-  }
-
   render() {
-    console.log(this.state, 'aa');
     return (
-      <div className={cx(styleNavigation, {[styleNavigationActive] : this.state.isOpen})}>
-        <div className={styleCloseBtn} onClick={this.closeMenu}>
+      <div className={cx(styleNavigation, {[styleNavigationActive] : this.props.isOpen})}>
+        <div className={styleCloseBtn} onClick={this.props.toggleMenu}>
           <i className={styleCloseIcon}></i>
         </div>
         <ul>
