@@ -1,6 +1,7 @@
 export const sharedVariables = {
   baseFontFamily: 'Source Sans Pro, sans-serif',
   containerSpacing: '20px',
+  headerHeight: '60',
 };
 
 export const fontSizes = {

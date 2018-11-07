@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Header } from '../components/Header';
+
+import { Intro } from './../components/Intro';
 
 export class Dashboard extends Component {
   render() {
     return (
-      <div className="Dashboard">
-        <Header></Header>
-
-        Dashboard
+      <div>
+        <Intro />
       </div>
     );
   }

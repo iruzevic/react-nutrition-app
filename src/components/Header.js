@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { css, cx } from 'emotion';
 
-import { Navigation } from '../components/Navigation';
+import { Navigation } from './Navigation/Navigation';
 
 import { colors } from './../styles/utils/colors';
-import { fontSizes } from './../styles/utils/shared-variables';
+import { fontSizes, sharedVariables } from './../styles/utils/shared-variables';
 import { placeholders } from './../styles/utils/placeholders';
 import { resets } from './../styles/utils/resets';
 import { icons } from './../assets/icons';
+import { NavLinks } from './../enums/Navigation';
 
 export class Header extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ export class Header extends Component {
               </div>
 
               <div className={styleItem}>
-                <Link to="/" className={cx(styleButtonLink, stylePlusLink)}></Link>
+                <NavLink exact to={NavLinks.ENTRY} className={cx(styleButtonLink, stylePlusLink)}>
+                  <i className={stylePlusIcon}></i>
+                </NavLink>
             </div>
             </div>
           </div>
@@ -60,9 +63,9 @@ export class Header extends Component {
 }
 
 const styleHeader = css`
-  background-color: red;
-  height: 60px;
-  color: ${colors.white}
+  height: ${sharedVariables.headerHeight}px;
+  color: ${colors.white};
+  background-image: linear-gradient(to bottom, ${colors.teal}, ${colors.boston});
 `;
 
 const styleContainer = css`
@@ -93,7 +96,7 @@ const styleItem = css`
 `;
 
 const styleButtonLink = css`
-  padding: 0 20px;
+  padding: 0 ${sharedVariables.containerSpacing};
   height: 100%;
   display: flex;
   align-items: center;
@@ -104,6 +107,10 @@ const styleMenuLink = css`
 `;
 
 const stylePlusLink = css`
+
+`;
+
+const stylePlusIcon = css`
   background-image: url(${icons.plus});
   background-position: center;
   background-repeat: no-repeat;
