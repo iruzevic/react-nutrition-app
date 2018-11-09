@@ -1,0 +1,21 @@
+{
+  "extends": "@infinumjs/tslint-config-react",
+  "rules": {
+    "binary-expression-operand-order": false,
+    "completed-docs": false,
+    "export-name": false,
+    "jsx-space-before-trailing-slash": true,
+    "match-default-export-name": false,
+    "no-implicit-dependencies": false,
+    "no-import-side-effect": false,
+    "no-reserved-keywords": false,
+    "no-submodule-imports": false,
+    "no-unsafe-any": false,
+    "object-curly-spacing": true,
+    "promise-function-async": false,
+    "react-this-binding-issue": false,
+    "strict-boolean-expressions": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false
+  }
+}

@@ -1,38 +1,60 @@
 {
-  "name": "react-nutrition-app",
+  "name": "nutrition-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "emotion": "^9.2.12",
+    "datx": "^0.11.4",
+    "decko": "^1.2.0",
+    "emotion": "^9.2.6",
     "emotion-normalize": "^8.0.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "husky": "^0.14.3",
+    "lodash": "^4.17.10",
+    "mobx": "^4.4.0",
+    "mobx-react": "^5.2.5",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts-ts": "^2.17.0",
+    "typescript": "^2.9.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "precommit": "lint-staged && CI=true yarn test",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "lint": "tslint './src/**/*.ts*'"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@storybook/addon-actions": "^4.0.2",
-    "@storybook/addon-links": "^4.0.2",
-    "@storybook/addons": "^4.0.2",
-    "@storybook/react": "^4.0.2",
-    "babel-loader": "^8.0.4"
+    "@infinumjs/tslint-config-react": "^2.0.0-beta.6",
+    "@storybook/addon-a11y": "^3.4.10",
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/addon-console": "^1.0.4",
+    "@storybook/addon-notes": "^3.4.10",
+    "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
+    "@types/enzyme": "^3.1.1",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^8.0.47",
+    "@types/react": "^16.0.18",
+    "@types/react-dom": "^16.0.2",
+    "enzyme": "^3.5.0",
+    "enzyme-adapter-react-16": "^1.3.0",
+    "jest": "^22.1.4",
+    "lint-staged": "^5.0.0",
+    "ts-jest": "^21.2.3",
+    "ts-loader": "^3.1.1",
+    "tslint": "^5.8.0",
+    "tslint-microsoft-contrib": "^5.0.1"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "tslint"
+    ],
+    "**/*.tsx": [
+      "tslint"
+    ]
   }
 }
