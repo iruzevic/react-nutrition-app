@@ -15,6 +15,7 @@ import { Dashboard } from 'containers/Dashboard';
 import { User } from 'containers/User';
 import { Entry } from 'containers/Entry';
 import { Nutrients } from 'containers/Nutrients';
+import { NutrientsInsert } from 'containers/NutrientsInsert';
 import { Error404 } from 'containers/Error404';
 
 ReactDOM.render(
@@ -25,9 +26,10 @@ ReactDOM.render(
 
         <Switch>
           <Route exact path={NavLinks.HOME} component={Dashboard} />
-          <Route path={NavLinks.USER} component={User} />
-          <Route path={NavLinks.ENTRY} component={Entry} />
-          <Route path={NavLinks.NUTRIENTS} component={Nutrients} />
+          <Route exact path={NavLinks.USER} component={User} />
+          <Route exact path={NavLinks.ENTRY} component={Entry} />
+          <Route exact path={NavLinks.NUTRIENTS} component={Nutrients} />
+          <Route exact path={NavLinks.NUTRIENTS_INSERT} component={NutrientsInsert} />
           <Route component={Error404} />
         </Switch>
 

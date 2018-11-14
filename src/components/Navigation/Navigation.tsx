@@ -6,7 +6,7 @@ import { colors, baseColors } from '../../styles/utils/colors';
 import { NavigationList } from './NavigationList';
 import { UserInfo } from './UserInfo';
 
-import { IconRemove } from './../../assets/ic-remove';
+import { Icons } from '../../assets/icons';
 
 export class Navigation extends React.Component <{
   isOpen: boolean;
@@ -24,12 +24,12 @@ export class Navigation extends React.Component <{
     return (
       <div className={cx(styleNavigation, {[styleNavigationActive] : this.props.isOpen})}>
         <div className={styleCloseBtn} onClick={this.props.toggleMenu} role="Menu">
-          <IconRemove />
+          <Icons.Remove />
         </div>
 
         <div className={styleContainer}>
           <div className={styleUserInfo}>
-            <UserInfo />
+            <UserInfo toggleMenu={this.props.toggleMenu} />
           </div>
           <NavigationList toggleMenu={this.props.toggleMenu} />
         </div>

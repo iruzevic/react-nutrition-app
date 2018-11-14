@@ -12,8 +12,7 @@ import { fontSizes, sharedVariables } from '../styles/utils/shared-variables';
 import { resets } from '../styles/utils/resets';
 import { NavLinks } from '../enums/NavLinks';
 
-import { IconMenu } from '../assets/ic-menu';
-import { IconPlus } from '../assets/ic-plus';
+import { Icons } from '../assets/icons';
 import { placeholders } from 'styles/utils/placeholders';
 
 @observer
@@ -38,7 +37,7 @@ export class Header extends React.Component {
             <div className={styleContainerWrap}>
               <div className={styleItem}>
                 <div className={cx(styleButtonLink, styleMenuLink)} onClick={this.toggleMenu} role="Menu">
-                  <IconMenu />
+                  <Icons.Menu />
                 </div>
               </div>
 
@@ -50,7 +49,7 @@ export class Header extends React.Component {
 
               <div className={styleItem}>
                 <NavLink exact to={NavLinks.ENTRY} className={cx(styleButtonLink, stylePlusLink)}>
-                  <IconPlus />
+                  <Icons.Plus />
                 </NavLink>
             </div>
             </div>

@@ -5,9 +5,8 @@ import { colors, baseColors } from './../styles/utils/colors';
 import { resets } from '../styles/utils/resets';
 import { placeholders } from '../styles/utils/placeholders';
 import { fontSizes } from '../styles/utils/shared-variables';
-import { IconCarbs } from 'assets/ic-carbs';
-import { IconProteins } from 'assets/ic-proteins';
-import { IconFats } from 'assets/ic-fats';
+
+import { Icons } from '../assets/icons';
 
 export class NutrientsList extends React.Component <{
   carbs: number;
@@ -23,17 +22,17 @@ export class NutrientsList extends React.Component <{
     {
       type: 'carbs',
       value: this.props.carbs,
-      icon: IconCarbs,
+      icon: Icons.Carbs,
     },
     {
       type: 'proteins',
       value: this.props.proteins,
-      icon: IconProteins,
+      icon: Icons.Proteins,
     },
     {
       type: 'fats',
       value: this.props.fats,
-      icon: IconFats,
+      icon: Icons.Fats,
     },
   ];
   public renderItems = (item) => {

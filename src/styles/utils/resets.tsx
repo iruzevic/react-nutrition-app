@@ -22,9 +22,20 @@ const button = css`
   }
 `;
 
+const input = css`
+  padding: 0;
+  border: none;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const resets = {
   list,
   heading,
   paragraph: heading,
   button,
+  input,
 };

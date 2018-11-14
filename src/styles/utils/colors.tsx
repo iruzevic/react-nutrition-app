@@ -6,6 +6,7 @@ export const colors = {
   concrete:  '#F2F2F2',
   dusty:     '#9B9B9B',
   lipstick:  '#C52C37',
+  brick:     '#95232B',
   mine:      '#232323',
   mercury:   '#E3E3E3',
   teal:      '#0096A7',

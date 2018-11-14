@@ -7,11 +7,13 @@ import { NavLinks } from 'enums/NavLinks';
 
 import { colors, baseColors } from '../../styles/utils/colors';
 import { fontSizes, sharedVariables } from '../../styles/utils/shared-variables';
-import { IconUser } from 'assets/ic-user';
+import { Icons } from '../../assets/icons';
 import { placeholders } from 'styles/utils/placeholders';
 
 @observer
-export class UserInfo extends React.Component {
+export class UserInfo extends React.Component <{
+  toggleMenu(): void;
+}> {
   @observable
   public userInfoState: {
     name: string;
@@ -26,10 +28,10 @@ export class UserInfo extends React.Component {
       <div className={styleContainer}>
         <div className={styleWrap}>
           <div className={styleAvatar}>
-            <IconUser />
+            <Icons.User />
           </div>
           <div className={styleInfo}>
-            <NavLink exact to={NavLinks.USER} className={styleName}>
+            <NavLink exact to={NavLinks.USER} className={styleName} onClick={this.props.toggleMenu}>
               {this.userInfoState.name}
             </NavLink>
             <div className={styleEmail}>{this.userInfoState.email}</div>

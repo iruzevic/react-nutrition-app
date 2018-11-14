@@ -11,7 +11,7 @@ export const menuItems = [
   },
   {
     id: 'user',
-    title: 'User',
+    title: 'User Profile',
     link: NavLinks.USER,
     // icon: icons.breakfast,
   },
@@ -25,6 +25,12 @@ export const menuItems = [
     id: 'nutrients',
     title: 'Nutrients',
     link: NavLinks.NUTRIENTS,
+    // icon: icons.breakfast,
+  },
+  {
+    id: 'nutrientsInsert',
+    title: 'Nutrients Insert',
+    link: NavLinks.NUTRIENTS_INSERT,
     // icon: icons.breakfast,
   },
 ];

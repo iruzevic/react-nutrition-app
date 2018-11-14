@@ -18,5 +18,7 @@ export const fontSizes = {
 };
 
 export const zindexes = {
-  menu: 1,
+  menu: 100,
+  inputIcon: 1,
+  selectDropdown: 2,
 };
