@@ -4,4 +4,5 @@ export const NavLinks = {
   NUTRIENTS: '/nutrients',
   NUTRIENTS_INSERT: '/nutrients/create',
   USER: '/user',
+  LOGIN: '/login',
 };

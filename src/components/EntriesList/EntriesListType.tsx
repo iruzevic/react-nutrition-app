@@ -37,38 +37,38 @@ export class EntriesListType extends React.Component <{
   }
 }
 
-const styleContainer = css`
+const styleContainer = css `
   ${placeholders.siteContainer};
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid ${colors.mercury}
 `;
-const styleWrap = css`
+const styleWrap = css `
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-const styleItem = css`
+const styleItem = css `
   position: relative;
 `;
-const styleTitleIcon = css`
+const styleTitleIcon = css `
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
 `;
-const styleTitle = css`
+const styleTitle = css `
   font-weight: 600;
   padding-left: 50px;
 `;
-const styleLabel = css`
+const styleLabel = css `
   position: relative;
 `;
-const styleMeta = css`
+const styleMeta = css `
   font-weight: 600;
   padding-right: 35px;
 `;
-const styleArrow = css`
+const styleArrow = css `
   position: absolute;
   right: 0;
   top: 50%;

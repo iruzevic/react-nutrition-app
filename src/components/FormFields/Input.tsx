@@ -12,10 +12,13 @@ export class Input extends React.Component <{
   placeholder?: string;
   unit?: string;
   icon?: any;
-  className?: any;
+  className?: string;
+  style?: string|undefined;
+  type?: string;
 }> {
   public render() {
     const Icon = this.props.icon;
+    const type = this.props.type;
 
     return (
       <div className={styleWrap}>
@@ -28,11 +31,11 @@ export class Input extends React.Component <{
         }
 
         <input
-          type="text"
+          type={type ? type : 'text'}
           value={this.props.value}
           name={this.props.name}
           placeholder={this.props.placeholder}
-          className={styleInput(this.props.icon)}
+          className={styleInput(this.props.icon, this.props.style)}
         />
 
         <div className={styleUnit}>
@@ -43,13 +46,14 @@ export class Input extends React.Component <{
   }
 }
 
-const styleWrap = css`
+const styleWrap = css `
   ${placeholders.inputWrap}
 `;
 
-const styleInput = (icon) => css`
+const styleInput = (icon: string|undefined, style: string|undefined) => css `
   ${resets.input};
   border-bottom: 1px solid ${colors.alto};
+  background-color: ${colors.white};
   height: 46px;
   width: 100%;
 
@@ -67,13 +71,24 @@ const styleInput = (icon) => css`
     padding-right: 50px;
     `
     : ''}
+
+  ${style === 'auth'
+    ? `
+    background-color: transparent;
+    color: ${colors.white};
+
+    &::placeholder {
+      color: ${colors.white};
+    }
+    `
+    : ''}
 `;
 
-const styleIcon = css`
+const styleIcon = css `
   ${placeholders.inputIcon}
 `;
 
-const styleUnit = css`
+const styleUnit = css `
   position: absolute;
   right: 0;
   top: 50%;

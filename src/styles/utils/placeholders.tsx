@@ -47,6 +47,10 @@ const inputWrap = css`
   position: relative;
 `;
 
+const formField = css`
+  margin-bottom: 10px;
+`;
+
 export const placeholders = {
   siteContainer,
   linkTransition,
@@ -55,4 +59,5 @@ export const placeholders = {
   inputError,
   inputIcon,
   inputWrap,
+  formField,
 };
