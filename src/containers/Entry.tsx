@@ -93,7 +93,6 @@ export class Entry extends React.Component {
             <div className={styleField}>
               <Input
                 name="weight"
-                id="weight"
                 placeholder="Add Weight"
                 unit="grams"
                 icon={Icons.Scale}
@@ -102,14 +101,16 @@ export class Entry extends React.Component {
 
             <div className={styleField}>
               <Button
-                name="submit"
-                id="submit"
                 value="Add Entry"
               />
             </div>
 
           </form>
-            <CallToActionText label="Missing an nutrient?" linkLabel="Add your own" link={NavLinks.NUTRIENTS} />
+            <CallToActionText
+              label="Missing an nutrient?"
+              linkLabel="Add your own"
+              link={NavLinks.NUTRIENTS}
+            />
         </div>
       </div>
     );

@@ -5,4 +5,6 @@ export const NavLinks = {
   NUTRIENTS_INSERT: '/nutrients/create',
   USER: '/user',
   LOGIN: '/login',
+  REGISTER: '/register',
+  LOSTPASS: '/lost-password',
 };

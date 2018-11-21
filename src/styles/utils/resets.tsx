@@ -22,6 +22,15 @@ const button = css`
   }
 `;
 
+const link = css`
+  border: 0;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 const input = css`
   padding: 0;
   border: none;
@@ -37,5 +46,6 @@ export const resets = {
   heading,
   paragraph: heading,
   button,
+  link,
   input,
 };

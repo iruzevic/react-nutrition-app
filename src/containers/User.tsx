@@ -1,15 +1,10 @@
 import * as React from 'react';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
 
 import { Intro } from '../components/Intro/Intro';
 import { Input } from 'components/FormFields/Input';
 import { Button } from 'components/FormFields/Button';
-import { SelectCustom } from 'components/FormFields/Select';
-import { Icons } from '../assets/icons';
-import {units} from '../mock/units';
-import {nutrientsCategories} from '../mock/nutrientsCategories';
 import { placeholders } from 'styles/utils/placeholders';
 import { DescriptionInfo } from 'components/DescriptionInfo';
 
@@ -30,7 +25,6 @@ export class User extends React.Component {
             <div className={styleField}>
               <Input
                 name="name"
-                id="name"
                 placeholder="Add name"
               />
             </div>
@@ -38,7 +32,6 @@ export class User extends React.Component {
             <div className={styleField}>
               <Input
                 name="email"
-                id="email"
                 placeholder="Add email"
               />
             </div>
@@ -46,15 +39,12 @@ export class User extends React.Component {
             <div className={styleField}>
               <Input
                 name="email"
-                id="email"
                 placeholder="Add password"
               />
             </div>
 
             <div className={styleField}>
               <Button
-                name="submit"
-                id="submit"
                 value="Update user details"
               />
             </div>

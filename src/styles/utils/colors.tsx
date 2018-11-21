@@ -1,3 +1,5 @@
+import { css } from 'emotion';
+
 export const colors = {
   alto:      '#E1DFDF',
   aqua:      '#00C7D3',
@@ -20,4 +22,37 @@ export const baseColors = {
   tertiary:  colors.cheese,
   baseText:  colors.tundora,
   baseBg:    colors.white,
+};
+
+const linkPrimary = css `
+  color: ${baseColors.primary};
+
+  &:hover,
+  &:focus {
+    color: ${colors.brick};
+  }
+`;
+
+const linkSecondary = css `
+  color: ${baseColors.secondary};
+
+  &:hover,
+  &:focus {
+    color: ${colors.boston};
+  }
+`;
+
+const linkTertiary = css `
+  color: ${baseColors.tertiary};
+
+  &:hover,
+  &:focus {
+    color: ${colors.boston};
+  }
+`;
+
+export const linkColor = {
+  primary: linkPrimary,
+  secondary: linkSecondary,
+  tertiary: linkTertiary,
 };

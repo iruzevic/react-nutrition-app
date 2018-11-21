@@ -6,7 +6,7 @@ import { colors } from 'styles/utils/colors';
 import { placeholders } from 'styles/utils/placeholders';
 
 export class Input extends React.Component <{
-  name?: string;
+  name: string;
   id?: string;
   value?: string;
   placeholder?: string;
@@ -34,13 +34,18 @@ export class Input extends React.Component <{
           type={type ? type : 'text'}
           value={this.props.value}
           name={this.props.name}
+          id={this.props.id ? this.props.id : this.props.name}
           placeholder={this.props.placeholder}
           className={styleInput(this.props.icon, this.props.style)}
         />
 
-        <div className={styleUnit}>
-          {this.props.unit}
-        </div>
+        {this.props.unit
+          ?
+          <div className={styleUnit}>
+            {this.props.unit}
+          </div>
+          : ''
+        }
       </div>
     );
   }

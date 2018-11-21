@@ -24,22 +24,11 @@ import { Entry } from 'containers/Entry';
 import { Nutrients } from 'containers/Nutrients';
 import { NutrientsInsert } from 'containers/NutrientsInsert';
 import { Error404 } from 'containers/Error404';
-import { Login } from 'containers/Login';
-import { cx, css } from 'emotion';
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    localStorage.setItem('authToken', 'aaa');
-    // setTimeout(cb, 100);
-  },
-  signout(cb) {
-    localStorage.removeItem('authToken');
-    this.isAuthenticated = false;
-    // setTimeout(cb, 100);
-  },
-};
+import { Auth } from 'containers/Auth';
+import { Login } from 'components/Auth/Login';
+import { Register } from 'components/Auth/Register';
+import { LostPassword } from 'components/Auth/LostPassword';
+import { PrivateRoute } from 'components/PrivateRoute';
 
 const Public = () => <h3>Public</h3>;
 const Protected = () => <h3>Protected</h3>;
@@ -75,42 +64,21 @@ const Protected = () => <h3>Protected</h3>;
 //   }
 // }
 
-const AuthButton = withRouter(({ history }) => (
-  fakeAuth.isAuthenticated ? (
-    <p>
-      Welcome!
-      <button
-        onClick={() => {
-          fakeAuth.signout(() => history.push('/'));
-        }}
-      >Sign out
-      </button>
-    </p>
-  ) : (
-    <p>You are not logged in.</p>
-  )
-));
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => (
-    fakeAuth.isAuthenticated === true
-      ? <Component {...props} />
-      : <Redirect
-          to={{
-            pathname: NavLinks.LOGIN,
-            state: { from: props.location },
-          }}
-      />
-    )}
-  />
-);
-
-// <ul>
-//   <li><Link to="/public">Public Page</Link></li>
-//   <li><Link to="/protected">Protected Page</Link></li>
-// </ul>
+// const PrivateRoute = ({ component: Component, ...rest }) => (
+//   <Route
+//     {...rest}
+//     render={(props) => (
+//     true
+//       ? <Component {...props} />
+//       : <Redirect
+//           to={{
+//             pathname: NavLinks.LOGIN,
+//             state: { from: props.location },
+//           }}
+//       />
+//     )}
+//   />
+// );
 
 ReactDOM.render(
   <Provider state={state}>
@@ -118,21 +86,26 @@ ReactDOM.render(
       <div className="App">
         {/* <Header /> */}
 
-        {/* <AuthButton /> */}
-
-        {/* <PrivateRoute path="/protected" component={Protected} /> */}
-
         <Switch>
-          <Route path="/public" component={Public} />
-          <Route path={NavLinks.LOGIN} component={Login} />
+          <Route
+            path={NavLinks.LOGIN}
+            render={(props) => <Auth {...props} formType={Login} />}
+          />
+          <Route
+            path={NavLinks.REGISTER}
+            render={(props) => <Auth {...props} formType={Register} />}
+          />
+          <Route
+            path={NavLinks.LOSTPASS}
+            render={(props) => <Auth {...props} formType={LostPassword} />}
+          />
 
-          <PrivateRoute exact path={NavLinks.LOGIN} component={Login} />
-          <PrivateRoute exact path={NavLinks.HOME} component={Dashboard} />
-          <PrivateRoute exact path={NavLinks.USER} component={User} />
+          <PrivateRoute exact path={NavLinks.HOME} component={Dashboard} state={state} />
+          {/* <PrivateRoute exact path={NavLinks.USER} component={User} />
           <PrivateRoute exact path={NavLinks.ENTRY} component={Entry} />
           <PrivateRoute exact path={NavLinks.NUTRIENTS} component={Nutrients} />
           <PrivateRoute exact path={NavLinks.NUTRIENTS_INSERT} component={NutrientsInsert} />
-          <PrivateRoute component={Error404} />
+          <PrivateRoute component={Error404} /> */}
         </Switch>
 
       </div>

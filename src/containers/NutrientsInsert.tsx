@@ -53,7 +53,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="name"
-                id="name"
                 placeholder="Add name"
               />
             </div>
@@ -61,7 +60,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="brand"
-                id="brand"
                 placeholder="Add brand"
               />
             </div>
@@ -78,7 +76,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="calories"
-                id="calories"
                 placeholder="Add calories"
                 unit="kcal"
               />
@@ -87,7 +84,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="Add carbs"
-                id="Add carbs"
                 placeholder="Add carbs"
                 unit="g"
               />
@@ -96,7 +92,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="proteins"
-                id="proteins"
                 placeholder="Add proteins"
                 unit="g"
               />
@@ -105,7 +100,6 @@ export class NutrientsInsert extends React.Component {
             <div className={styleField}>
               <Input
                 name="fats"
-                id="fats"
                 placeholder="Add fats"
                 unit="g"
               />
@@ -122,8 +116,6 @@ export class NutrientsInsert extends React.Component {
 
             <div className={styleField}>
               <Button
-                name="submit"
-                id="submit"
                 value="Add Nutrient"
               />
             </div>

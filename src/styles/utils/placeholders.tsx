@@ -1,33 +1,34 @@
 import { css } from 'emotion';
-import { sharedVariables, zindexes } from './shared-variables';
+import { sharedVariables, zindexes, fontSizes } from './shared-variables';
 import { colors, baseColors } from './colors';
+import { resets } from './resets';
 
-const siteContainer = css`
+const siteContainer = css `
   padding-left: ${sharedVariables.containerSpacing}px;
   padding-right: ${sharedVariables.containerSpacing}px;
   margin: 0 auto;
 `;
 
-const linkTransition = css`
+const linkTransition = css `
   transition-property: color;
   transition-timing-function: ease-in;
   transition-duration: 0.25s;
 `;
 
-const buttonTransition = css`
+const buttonTransition = css `
   transition-property: background-color, color;
   transition-timing-function: ease-in;
   transition-duration: 0.25s;
 `;
 
-const inputFocus = css`
+const inputFocus = css `
   border-bottom-color: ${baseColors.secondary};
   transition-property: border-bottom-color;
   transition-timing-function: ease-in;
   transition-duration: 0.25s;
 `;
 
-const inputError = css`
+const inputError = css `
   color: ${baseColors.primary};
   border-bottom-color: ${baseColors.primary};
   transition-property: border-bottom-color, color;
@@ -35,7 +36,7 @@ const inputError = css`
   transition-duration: 0.25s;
 `;
 
-const inputIcon = css`
+const inputIcon = css `
   position: absolute;
   left: 0;
   top: 50%;
@@ -43,12 +44,22 @@ const inputIcon = css`
   z-index: ${zindexes.inputIcon};
 `;
 
-const inputWrap = css`
+const inputWrap = css `
   position: relative;
 `;
 
-const formField = css`
+const formField = css `
   margin-bottom: 10px;
+`;
+
+const authHeading = css `
+  ${resets.heading};
+  width: 100%;
+  color: ${colors.white};
+  font-size: ${fontSizes.big};
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: normal;
 `;
 
 export const placeholders = {
@@ -60,4 +71,5 @@ export const placeholders = {
   inputIcon,
   inputWrap,
   formField,
+  authHeading,
 };
