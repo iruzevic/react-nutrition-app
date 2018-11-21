@@ -100,7 +100,7 @@ ReactDOM.render(
             render={(props) => <Auth {...props} formType={LostPassword} />}
           />
 
-          <PrivateRoute exact path={NavLinks.HOME} component={Dashboard} state={state} />
+          <PrivateRoute exact path={NavLinks.HOME} component={Dashboard} />
           {/* <PrivateRoute exact path={NavLinks.USER} component={User} />
           <PrivateRoute exact path={NavLinks.ENTRY} component={Entry} />
           <PrivateRoute exact path={NavLinks.NUTRIENTS} component={Nutrients} />

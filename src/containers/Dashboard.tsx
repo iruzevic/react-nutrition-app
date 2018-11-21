@@ -28,15 +28,15 @@ const fakeAuth = {
   },
 };
 
-const AuthButton = withRouter(({ history }) => (
-  <button
-    onClick={() => {
-      fakeAuth.signout(() => history.push('/'));
-    }}
-  >
-    Sign out
-  </button>
-));
+// const AuthButton = withRouter(({ history }) => (
+//   <button
+//     onClick={() => {
+//       fakeAuth.signout(() => history.push('/'));
+//     }}
+//   >
+//     Sign out
+//   </button>
+// ));
 
 @inject('state')
 @observer
@@ -47,7 +47,7 @@ export class Dashboard extends React.Component <{
     return (
       <div>
         {this.props.state.auth}
-        <AuthButton />
+        {/* <AuthButton /> */}
         <Intro type="simple" title="Dashboard" />
         <NutrientsList carbs={50} proteins={20} fats={10} calories={1500} />
 

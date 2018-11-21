@@ -2,6 +2,8 @@ import { Collection } from 'datx';
 import { observable, computed, action } from 'mobx';
 
 import { Auth } from './models/Auth';
+import { Redirect } from 'react-router-dom';
+import { NavLinks } from 'enums/NavLinks';
 
 export class AppData extends Collection {
   public static types = [Auth];
@@ -27,8 +29,6 @@ export class AppData extends Collection {
 
   @observable
   public isAuth() {
-    return this.checkAuthToken();
-
-    return this.auth ? 'aaa' : 'bbbb';
+    return this.auth;
   }
 }

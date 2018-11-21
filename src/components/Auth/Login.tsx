@@ -8,18 +8,25 @@ import { placeholders } from 'styles/utils/placeholders';
 import { CallToActionText } from 'components/CallToActionText';
 import { NavLinks } from 'enums/NavLinks';
 import { AppData } from 'state/AppData';
+import { withRouter, Redirect } from 'react-router-dom';
+import { object } from 'prop-types';
 
 @inject('state')
 @observer
 export class Login extends React.Component <{
   state: AppData;
 }> {
-  public handleSubmit = (event) => {
+  public handleSubmit =  (event) => {
     event.preventDefault();
     this.props.state.signIn();
+    // this.props.history.push("/new/url")
   }
 
   public render() {
+    if (this.props.state.isAuth()) {
+      return <Redirect to={NavLinks.HOME} />;
+    }
+
     return (
       <form onSubmit={this.handleSubmit} className={styleAuthForm}>
         <h1 className={placeholders.authHeading}>Login {this.props.state.isAuth()}</h1>
