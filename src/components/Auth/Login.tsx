@@ -7,19 +7,25 @@ import { Input } from 'components/FormFields/Input';
 import { placeholders } from 'styles/utils/placeholders';
 import { CallToActionText } from 'components/CallToActionText';
 import { NavLinks } from 'enums/NavLinks';
-import { AppData } from 'state/AppData';
+import { AuthStore } from 'state/AuthStore';
 import { withRouter, Redirect } from 'react-router-dom';
 import { object } from 'prop-types';
+import { login } from 'services/auth';
 
 @inject('state')
 @observer
 export class Login extends React.Component <{
-  state: AppData;
+  state: AuthStore;
+  username: string;
+  password: string;
 }> {
-  public handleSubmit =  (event) => {
+  public handleSubmit = (event) => {
+    console.log(event.target.username);
     event.preventDefault();
-    this.props.state.signIn();
-    // this.props.history.push("/new/url")
+    this.props.state.signIn({
+     username: event.target.username,
+     password: event.target.password,
+    });
   }
 
   public render() {
@@ -28,13 +34,14 @@ export class Login extends React.Component <{
     }
 
     return (
-      <form onSubmit={this.handleSubmit} className={styleAuthForm}>
+      <form onSubmit={this.handleSubmit}>
         <h1 className={placeholders.authHeading}>Login {this.props.state.isAuth()}</h1>
         <div className={placeholders.formField}>
           <Input
             name="username"
             placeholder="Username"
             style="auth"
+            value={this.props.username}
           />
         </div>
         <div className={placeholders.formField}>
@@ -43,6 +50,7 @@ export class Login extends React.Component <{
             placeholder="Password"
             type="password"
             style="auth"
+            value={this.props.password}
           />
         </div>
         <div className={placeholders.formField}>
@@ -71,7 +79,3 @@ export class Login extends React.Component <{
     );
   }
 }
-
-const styleAuthForm = css `
-  // height: 100vh;
-`;

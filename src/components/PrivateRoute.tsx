@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
-import { AppData } from 'state/AppData';
+import { AuthStore } from 'state/AuthStore';
 import { NavLinks } from 'enums/NavLinks';
+import { Header } from './Header';
 
 interface IPrivateRoute extends RouteProps {
-  state?: AppData;
+  state?: AuthStore;
 }
 
 @inject('state')

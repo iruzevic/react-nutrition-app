@@ -1,7 +1,7 @@
 import { DEV } from 'utils/environment';
-import { AppData } from './AppData';
+import { AuthStore } from './AuthStore';
 
-const appData = new AppData();
+const appData = new AuthStore();
 
 if (DEV) {
   window['appData'] = appData;

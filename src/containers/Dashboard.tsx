@@ -1,10 +1,5 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-
-import {
-  withRouter,
-} from 'react-router-dom';
-
 import { Intro } from '../components/Intro/Intro';
 import { NutrientsList } from 'components/NutrientsList';
 import { EntriesListType } from 'components/EntriesList/EntriesListType';
@@ -12,42 +7,16 @@ import { EntriesListItem } from 'components/EntriesList/EntriesListItem';
 import { CallToActionText } from 'components/CallToActionText';
 
 import { NavLinks } from 'enums/NavLinks';
-import { AppData } from 'state/AppData';
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    localStorage.setItem('authToken', 'aaa');
-    // setTimeout(cb, 100);
-  },
-  signout(cb) {
-    localStorage.removeItem('authToken');
-    this.isAuthenticated = false;
-    // setTimeout(cb, 100);
-  },
-};
-
-// const AuthButton = withRouter(({ history }) => (
-//   <button
-//     onClick={() => {
-//       fakeAuth.signout(() => history.push('/'));
-//     }}
-//   >
-//     Sign out
-//   </button>
-// ));
+import { AuthStore } from 'state/AuthStore';
 
 @inject('state')
 @observer
 export class Dashboard extends React.Component <{
-  state: AppData;
+  state: AuthStore;
 }> {
   public render() {
     return (
       <div>
-        {this.props.state.auth}
-        {/* <AuthButton /> */}
         <Intro type="simple" title="Dashboard" />
         <NutrientsList carbs={50} proteins={20} fats={10} calories={1500} />
 

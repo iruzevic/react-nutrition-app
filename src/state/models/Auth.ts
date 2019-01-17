@@ -6,5 +6,5 @@ export class Auth extends Model {
   public static type = ModelEnum.AUTH;
 
   @prop
-  public auth: string;
+  public token: string|false;
 }

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { css, cx } from 'emotion';
 import { bind } from 'decko';
 import { observable } from 'mobx';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import { Navigation } from './Navigation/Navigation';
 
@@ -14,9 +14,13 @@ import { NavLinks } from '../enums/NavLinks';
 
 import { Icons } from '../assets/icons';
 import { placeholders } from 'styles/utils/placeholders';
+import { AuthStore } from 'state/AuthStore';
 
+@inject('state')
 @observer
-export class Header extends React.Component {
+export class Header extends React.Component <{
+  state?: AuthStore;
+}> {
   @observable
   public menuState: {
     isOpen: boolean;
@@ -30,6 +34,10 @@ export class Header extends React.Component {
   }
 
   public render() {
+    if (!this.props.state.isAuth()) {
+      return false;
+    }
+
     return (
       <div>
         <div className={styleHeader}>

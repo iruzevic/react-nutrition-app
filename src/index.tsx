@@ -84,7 +84,7 @@ ReactDOM.render(
   <Provider state={state}>
     <Router>
       <div className="App">
-        {/* <Header /> */}
+        <Header />
 
         <Switch>
           <Route

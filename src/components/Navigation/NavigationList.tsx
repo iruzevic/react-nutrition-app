@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { css } from 'emotion';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import { colors, baseColors } from '../../styles/utils/colors';
 import { sharedVariables } from '../../styles/utils/shared-variables';
 import { resets } from '../../styles/utils/resets';
 import { menuItems } from '../../mock/menuItems';
+import { inject, observer } from 'mobx-react';
+import { AuthStore } from 'state/AuthStore';
 
+@inject('state')
+@observer
 export class NavigationList extends React.Component <{
+  state?: AuthStore;
   toggleMenu(): void;
 }> {
   public menu: Array<{
@@ -28,9 +33,20 @@ export class NavigationList extends React.Component <{
   }
 
   public render() {
+    const AuthButton = withRouter(({ history }) => (
+      <button
+        onClick={() => {
+          this.props.state.signOut(history);
+        }}
+      >
+        Sign out
+      </button>
+    ));
+
     return (
       <ul className={styleList}>
         {menuItems.map(this.renderMenuItems)}
+        <AuthButton />
       </ul>
     );
   }
